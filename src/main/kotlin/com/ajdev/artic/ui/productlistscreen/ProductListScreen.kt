@@ -24,8 +24,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.ajdev.artic.ui.Product
+import com.ajdev.artic.domain.model.Product
 import com.ajdev.artic.ui.addproductscreen.AddProductScreen
+import java.math.BigDecimal
 
 class ProductListScreen: Screen {
     @Composable
@@ -60,13 +61,12 @@ fun ProductListScreenContent() {
 
         // Lista
         LazyColumn {
-            val productList = listOf(Product(id = 1, name = "alo", stock = 4, price = 30.0, category = "asd", description = ""))
+            val productList = listOf(Product(id = "1", name = "alo", quantity = 4, price = BigDecimal("25.50")))
             items(productList) { product ->
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text(product.name, Modifier.weight(1f))
-                    Text("${product.stock}", Modifier.weight(1f))
+                    Text("${product.quantity}", Modifier.weight(1f))
                     Text("S/${product.price}", Modifier.weight(1f))
-                    Text(product.category, Modifier.weight(1f))
                     Row(Modifier.weight(1f)) {
                         IconButton(onClick = { /* Editar */ }) { Icon(Icons.Default.Edit, contentDescription = "Editar") }
                         IconButton(onClick = { /* Eliminar */ }) { Icon(Icons.Default.Delete, contentDescription = "Eliminar") }

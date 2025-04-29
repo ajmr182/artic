@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.ajdev.artic.ui.Pantalla2
 import com.ajdev.artic.ui.dashboard.DashboardScreen
 import org.koin.java.KoinJavaComponent.inject
 
