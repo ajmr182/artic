@@ -1,4 +1,4 @@
-package com.ajdev.artic.ui
+package com.ajdev.artic.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
