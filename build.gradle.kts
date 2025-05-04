@@ -37,6 +37,11 @@ dependencies {
 
     implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.2")
 
+    implementation(project.dependencies.platform("io.github.jan-tennert.supabase:bom:1.3.2"))
+    implementation("io.github.jan-tennert.supabase:postgrest-kt")
+    implementation("io.github.jan-tennert.supabase:realtime-kt")
+    implementation("io.github.jan-tennert.supabase:gotrue-kt")
+
 }
 
 compose.desktop {
