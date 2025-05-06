@@ -4,5 +4,5 @@ import com.ajdev.artic.ui.login.LoginViewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    single { LoginViewModel() }
+    single { LoginViewModel(get()) }
 }

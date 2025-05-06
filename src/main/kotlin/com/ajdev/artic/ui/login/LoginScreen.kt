@@ -30,11 +30,20 @@ class LoginScreen() : Screen {
     override fun Content() {
         val email = viewModel.email.collectAsState().value
         val password = viewModel.password.collectAsState().value
+        val navigator = LocalNavigator.current
 
-        DisposableEffect(Unit) {
+        /*DisposableEffect(Unit) {
             // Este bloque se ejecuta cuando la pantalla se desmonta
             onDispose {
                 viewModel.resetForm()
+            }
+        }*/
+
+        LaunchedEffect(Unit) {
+            viewModel.loginEvent.collect { success ->
+                if (success) {
+                    navigator?.push(DashboardScreen())
+                }
             }
         }
 
@@ -57,7 +66,6 @@ fun LoginScreenContent(
 ) {
 
     var passwordVisible by remember { mutableStateOf(false) }
-    val navigator = LocalNavigator.current
 
     Box(
         modifier = Modifier.fillMaxSize().background(Color(0xFFF9FAFB)),
@@ -116,7 +124,6 @@ fun LoginScreenContent(
                 Button(
                     onClick = {
                         onSingInClicked.invoke()
-                        navigator?.push(DashboardScreen())
                     },
                     colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF10B981)),
                     modifier = Modifier.fillMaxWidth()
